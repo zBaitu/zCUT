@@ -21,15 +21,15 @@ make install
 gcc ut.c -lzcut_main
 gcc ut_main.c  -lzcut
 ```
-There are 2 static lib, libzcut.a and libzcut_main.a. libzcut_main.a contains default main implementation,
-which in lib/zcut_main.c.
+There are 2 static lib, **libzcut.a** and **libzcut_main.a**.  
+libzcut_main.a contains default main implementation, which in lib/zcut_main.c.
 
 
-## Test structure
-There are 3 macro:
-TEST_CASE
-TEST_SUITE
-TEST_RUNNER
+## Test Structure
+There are 3 macro:  
+TEST_CASE  
+TEST_SUITE  
+TEST_RUNNER  
 ```
 #include <zcut.h>
 
@@ -55,16 +55,16 @@ TEST_RUNNER(test_runner_name)
     TEST_NULL
 };
 ```
-Test case register in test suite, and test suite register in test runner.
-**DO NOT FORGET `TEST_NULL`** in TEST_SUITE and TEST_RUNNER.
+Test case register in test suite, and test suite register in test runner.  
+**DO NOT FORGET `TEST_NULL`** in TEST_SUITE and TEST_RUNNER.  
 **DO NOT FORGET `;`** after TEST_SUITE and TEST_RUNNER.
 
 
 # Assertion
-Assertion prototype are:
-[EXPECT|ASSERT]\_[TYPE]\_COMPARE(actual[, expected, user_msg...])
+Assertion prototype is:  
+**[EXPECT|ASSERT]\_[TYPE]\_COMPARE(actual[, expected, user_msg...])**
 ```
-/* bool assertion */
+/* boolean assertion */
 EXPECT_TRUE
 EXPECT_FALSE
 
@@ -95,13 +95,13 @@ EXPECT_STR_IC_GE
 The difference between EXPECT and ASSERT is: When ASSERT_XXX failed, it will exit test case directly,
 code after ASSERT will not execute.
 
-The user_msg param in assertion is like format in printf. You can add more test msg, it will print when case failed.
-For example:
-    EXPECT_EQ(0, 1, "error here:%d, %d", 0, 1);
+The user_msg parameter in assertion is like format in `printf`.
+You can add more test msg, it will print when case failed. For example:  
+`EXPECT_EQ(0, 1, "error here:%d, %d", 0, 1);`
 
 
 ## Execution
-There are some command option:
+There are some command options:
 ```
 Usage: test_bin [-bC] [-fF FILTER_EXPRESSION] [-Hkl] [-r REPEAT_COUNT] [-s] [-x [XML_PATH]] [-hv]
   -b, --break-on-failure           Exit unit test when a assertion failed.
@@ -118,19 +118,19 @@ Usage: test_bin [-bC] [-fF FILTER_EXPRESSION] [-Hkl] [-r REPEAT_COUNT] [-s] [-x 
   -h, --help                       Display this help and exit.
   -v, --version                    Display version and exit.
 ```
-There are env parameter corresponding to command option:
+There are env parameters corresponding to command options:
 ```
 -b  UT_BREAK_ON_FAILURE
--C, UT_NO_COLOR
--f, UT_CASE_FILTER
--F, UT_SUITE_FILTER
--H, UT_HIGHLIGHT
--k, UT_KEEP_GOING
--l, UT_LIST
--r, UT_REPEAT
--R, UT_NO_FILTERED_OUT_RESULT
--s, UT_SHUFFLE
--x, UT_XML_PATH
+-C  UT_NO_COLOR
+-f  UT_CASE_FILTER
+-F  UT_SUITE_FILTER
+-H  UT_HIGHLIGHT
+-k  UT_KEEP_GOING
+-l  UT_LIST
+-r  UT_REPEAT
+-R  UT_NO_FILTERED_OUT_RESULT
+-s  UT_SHUFFLE
+-x  UT_XML_PATH
 ```
 
 
