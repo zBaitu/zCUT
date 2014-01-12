@@ -27,9 +27,9 @@ libzcut_main.a contains default main implementation, which in lib/zcut_main.c.
 
 ## Test Structure
 There are 3 macro:  
-TEST_CASE  
-TEST_SUITE  
-TEST_RUNNER  
+**TEST_CASE**  
+**TEST_SUITE**  
+**TEST_RUNNER**  
 ```
 #include <zcut.h>
 
@@ -92,7 +92,7 @@ EXPECT_STR_IC_LE
 EXPECT_STR_IC_GT
 EXPECT_STR_IC_GE
 ```
-The difference between EXPECT and ASSERT is: When ASSERT_XXX failed, it will exit test case directly,
+The difference between EXPECT and ASSERT is: When ASSERT failed, it will exit test case directly,
 code after ASSERT will not execute.
 
 The user_msg parameter in assertion is like format in `printf`.
