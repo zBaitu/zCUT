@@ -377,7 +377,7 @@ void print_setup_end(test_type_t test_type, bool passed, int time);
 void print_teardown_begin(test_type_t test_type);
 void print_teardown_end(test_type_t test_type, bool passed, int time);
 void print_assertion_info(const char* file, int line, const char* expected, const char* actual, const char* msg, ...);
-void print_ut_list(const test_runner_t *tesr_runner);
+void print_ut_list(const test_runner_t *test_runner);
 void print_ut_result(const test_runner_t *test_runner);
 bool print_ut_result_to_xml(const test_runner_t *test_runner, int repeat);
 
