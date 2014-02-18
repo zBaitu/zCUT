@@ -242,20 +242,20 @@ extern char UT_FLAG(xml_path)[MAX_STR_LEN];
     get_suite_func_t runner_suite_list[]=
 
 
-#define FORMAT_BOOL(actual, compare, expected, no_used)\
+#define FORMAT_BOOL(actual, compare, expected)\
     snprintf(expected_str, MAX_STR_LEN, "(%s) %s %s", #actual, #compare, (expected ? "true" : "false"));\
     snprintf(actual_str, MAX_STR_LEN, "(%s) == %s", #actual, (actual ? "true" : "false"))
 
-#define FORMAT_STR(actual, compare, expected, no_used)\
+#define FORMAT_STR(actual, compare, expected)\
     snprintf(expected_str, MAX_STR_LEN, "%s %s \"%s\"", #actual, #compare, expected);\
     snprintf(actual_str, MAX_STR_LEN, "%s == \"%s\"", #actual, actual)
 
-#define FORMAT_STR_IC(actual, compare, expected, no_used)\
+#define FORMAT_STR_IC(actual, compare, expected)\
     snprintf(expected_str, MAX_STR_LEN, "%s %s \"%s\" (ignore case)", #actual, #compare, expected);\
     snprintf(actual_str, MAX_STR_LEN, "%s == \"%s\" (ignore case)", #actual, actual)
 
-#define FORMAT_INT(actual, compare, expected, unsigned_zero)\
-    if (actual >= unsigned_zero)\
+#define FORMAT_INT(actual, compare, expected)\
+    if (actual >= 0)\
     {\
         if (sizeof(actual) > 4)\
         {\
@@ -292,9 +292,7 @@ extern char UT_FLAG(xml_path)[MAX_STR_LEN];
         CASE_RESULT_PARAMETER->fail_assertion_count++;\
         char expected_str[MAX_STR_LEN];\
         char actual_str[MAX_STR_LEN];\
-        unsigned int zero = 0;\
-        (void)zero;\
-        format(actual, compare, expected, zero);\
+        format(actual, compare, expected);\
         print_assertion_info(__FILE__, __LINE__, expected_str, actual_str, EMPTY_STR msg);\
         if (UT_FLAG(break_on_failure))\
             abort();\
