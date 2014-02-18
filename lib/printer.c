@@ -152,7 +152,7 @@ static void print_underline_blank(color_t color)
 
 void print_help(void)
 {
-    printf(HELP);
+    printf("%s", HELP);
 }
 
 void print_version(void)
@@ -249,7 +249,7 @@ static void print_setup_teardown_begin_label(test_type_t setup_teardown, const c
 {
     const char* label = get_label(setup_teardown);
     print_label(GREEN, label);
-    printf(msg);
+    printf("%s", msg);
 }
 
 static void print_setup_teardown_end_label(bool passed, const char* msg)
@@ -257,7 +257,7 @@ static void print_setup_teardown_end_label(bool passed, const char* msg)
     color_t color = passed ? GREEN : RED;
     const char* label = passed ? PASSED_LABEL : FAILED_LABEL;
     print_underline_label(color, label);
-    printf(msg);
+    printf("%s", msg);
 }
 
 void print_setup_begin(test_type_t test_type)
@@ -317,7 +317,7 @@ void print_assertion_info(const char* file, int line, const char* expected, cons
     if (len > 0)
     {
         print_label(CYAN, USER_MESSAGE_LABEL);
-        printf(formatted_msg);
+        printf("%s", formatted_msg);
         if (formatted_msg[len - 1] != '\n')
             printf("\n");
     }

@@ -7,7 +7,7 @@ if (EXISTS ${CLANG})
     set(CMAKE_C_COMPILER "clang")
 endif()
 
-set(CMAKE_C_FLAGS "-std=gnu89 -Wall -Wextra -Werror -Wno-format-security")
+set(CMAKE_C_FLAGS "-std=gnu89 -Wall -Wextra -Werror")
 
 add_subdirectory(lib)
 add_subdirectory(tests)
