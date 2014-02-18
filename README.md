@@ -182,4 +182,6 @@ There are env parameters corresponding to command options:
 
 
 ## MISC
-For more detail, please see tests/test_XXX.c for demo.
+For more detail, please see tests/test_XXX.c for demo.  
+Sample result output:  
+![sample result](https://raw.github.com/zBaitu/assets/master/zCUT/img/test_sample.png)
