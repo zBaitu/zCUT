@@ -27,9 +27,9 @@ libzcut_main.a contains default main implementation, which in lib/zcut_main.c.
 
 ## Test Structure
 There are 3 macro:  
-**TEST_CASE**  
-**TEST_SUITE**  
-**TEST_RUNNER**  
+**TEST_CASE(case_name)**  
+**TEST_SUITE(suite_name)**  
+**TEST_RUNNER(ut_name)**  
 ```
 #include <zcut.h>
 
@@ -57,7 +57,54 @@ TEST_RUNNER(test_runner_name)
 ```
 Test case register in test suite, and test suite register in test runner.  
 **DO NOT FORGET `TEST_NULL`** in TEST_SUITE and TEST_RUNNER.  
-**DO NOT FORGET `;`** after TEST_SUITE and TEST_RUNNER.
+**DO NOT FORGET `;`** after TEST_SUITE and TEST_RUNNER.  
+
+There are another 3 macro pairs:  
+**CASE_SETUP(suite_name)**  
+**CASE_TEARDOWN(suite_name)**  
+**SUITE_SETUP(suite_name)**  
+**SUITE_TEARDOWN(suite_name)**  
+**RUNNER_SETUP()**  
+**RUNNER_TEARDOWN()**  
+```
+/* Be called before/after every case of this suite */
+CASE_SETUP(test_suite_name0)
+{
+    ...
+    return (is_successed) ? true : false;
+}
+CASE_TEARDOWN(test_suite_name0)
+{
+    ...
+    return (is_successed) ? true : false;
+}
+
+/* Be called before/after this suite */
+SUITE_SETUP(test_suite_name0)
+{
+    ...
+    return (is_successed) ? true : false;
+}
+SUITE_TEARDOWN(test_suite_name0)
+{
+    ...
+    return (is_successed) ? true : false;
+}
+
+/* Be called before/after ut */
+RUNNER_SETUP()
+{
+    ...
+    return (is_successed) ? true : false;
+}
+RUNNER_TEARDOWN()
+{
+    ...
+    return (is_successed) ? true : false;
+}
+
+```
+If XXX_SETUP() return false, the runner/suite/case will not be executed.
 
 
 # Assertion
