@@ -19,7 +19,7 @@ make install
 ### use
 ```
 gcc ut.c -lzcut_main
-gcc ut_main.c  -lzcut
+gcc ut_main.c -lzcut
 ```
 There are 2 static lib, **libzcut.a** and **libzcut_main.a**.  
 libzcut_main.a contains default main implementation, which in lib/zcut_main.c.
