@@ -25,5 +25,5 @@ int main(int argc, char* argv[])
     bool is_passed = ut_run();
     ut_fini();
 
-    return (!is_passed) ? EXIT_SUCCESS : EXIT_FAILURE;
+    return (is_passed) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
